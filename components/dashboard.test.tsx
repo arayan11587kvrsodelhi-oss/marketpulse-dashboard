@@ -26,6 +26,7 @@ describe("Dashboard interactions", () => {
     expect(screen.getByText("DEMO MODE — SIMULATED MARKET DATA — NO LIVE FEED CONNECTED")).toBeTruthy();
     expect(screen.getByText("Every value and timestamp is a local fixture.")).toBeTruthy();
     await waitFor(() => expect(screen.getByRole("img", { name: /simulated historical close prices for SPX/i })).toBeTruthy());
+    expect(screen.getByRole("img", { name: /shown in index points/i })).toBeTruthy();
     expect(screen.getByText(/Simulated fixture timestamp:/)).toBeTruthy();
   });
 

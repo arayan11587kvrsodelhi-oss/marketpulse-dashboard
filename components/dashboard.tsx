@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { PriceChart } from "@/components/price-chart";
 import { DemandValidation } from "@/components/demand-validation";
-import { categoryLabels, formatChange, formatPrice, formatTimestamp } from "@/lib/market-data/formatters";
+import { categoryLabels, formatChange, formatChartValue, formatPrice, formatTimestamp, formatUnitLabel } from "@/lib/market-data/formatters";
 import { MockMarketDataAdapter } from "@/lib/market-data/mock-adapter";
 import { readWatchlist, writeWatchlist } from "@/lib/watchlist-storage";
 import type { MarketCategory, Quote } from "@/lib/market-data/types";
@@ -195,7 +195,7 @@ export function Dashboard() {
                     </div>
                   </div>
                   <div className="chart-heading"><span>Simulated historical close</span><span>1 month fixture range</span></div>
-                  <PriceChart candles={candles} symbol={selectedQuote.instrument.symbol} />
+                  <PriceChart candles={candles} symbol={selectedQuote.instrument.symbol} valueFormatter={(value) => formatChartValue(value, selectedQuote.instrument)} valueLabel={formatUnitLabel(selectedQuote.instrument)} />
                   <div className="source-row">
                     <span>Source: {selectedQuote.sourceLabel}</span>
                     <span>Simulated fixture timestamp: {formatTimestamp(selectedQuote.sourceTimestamp)}</span>

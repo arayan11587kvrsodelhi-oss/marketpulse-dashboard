@@ -20,7 +20,7 @@ export interface MarketInstrument {
   name: string;
   category: MarketCategory;
   exchange: string;
-  currency: string;
+  currency?: string;
   unit?: string;
   provider: string;
   isSimulated: true;

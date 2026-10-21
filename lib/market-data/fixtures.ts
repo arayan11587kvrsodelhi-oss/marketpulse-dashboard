@@ -7,8 +7,8 @@ export const FIXTURE_TIMESTAMP = "2026-10-21T12:00:00.000Z";
 export const fixtureInstruments: MarketInstrument[] = [
   { symbol: "AAPL", name: "Apple Inc.", category: "stocks", exchange: "NASDAQ", currency: "USD", provider: FIXTURE_SOURCE, isSimulated: true },
   { symbol: "MSFT", name: "Microsoft Corporation", category: "stocks", exchange: "NASDAQ", currency: "USD", provider: FIXTURE_SOURCE, isSimulated: true },
-  { symbol: "SPX", name: "S&P 500", category: "indices", exchange: "CBOE", currency: "USD", provider: FIXTURE_SOURCE, isSimulated: true },
-  { symbol: "NDX", name: "Nasdaq 100", category: "indices", exchange: "NASDAQ", currency: "USD", provider: FIXTURE_SOURCE, isSimulated: true },
+  { symbol: "SPX", name: "S&P 500", category: "indices", exchange: "CBOE", unit: "index points", provider: FIXTURE_SOURCE, isSimulated: true },
+  { symbol: "NDX", name: "Nasdaq 100", category: "indices", exchange: "NASDAQ", unit: "index points", provider: FIXTURE_SOURCE, isSimulated: true },
   { symbol: "BTC-USD", name: "Bitcoin / US Dollar", category: "crypto", exchange: "Aggregated fixture", currency: "USD", provider: FIXTURE_SOURCE, isSimulated: true },
   { symbol: "ETH-USD", name: "Ethereum / US Dollar", category: "crypto", exchange: "Aggregated fixture", currency: "USD", provider: FIXTURE_SOURCE, isSimulated: true },
   { symbol: "EURUSD", name: "Euro / US Dollar", category: "forex", exchange: "OTC fixture", currency: "USD", provider: FIXTURE_SOURCE, isSimulated: true },

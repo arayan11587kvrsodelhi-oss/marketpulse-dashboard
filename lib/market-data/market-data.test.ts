@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { fixtureInstruments, fixtureQuotes, FIXTURE_SOURCE } from "./fixtures";
-import { formatChange, formatPrice, formatTimestamp } from "./formatters";
+import { formatChange, formatChartValue, formatPrice, formatTimestamp, formatUnitLabel } from "./formatters";
 import { MockMarketDataAdapter } from "./mock-adapter";
 
 describe("MarketPulse fixture data", () => {
@@ -38,6 +38,10 @@ describe("MarketPulse fixture data", () => {
   it("formats available and unavailable values clearly", () => {
     const quote = fixtureQuotes[0];
     expect(formatPrice(quote)).toBe("$228.42");
+    expect(formatPrice(fixtureQuotes.find((item) => item.instrument.symbol === "SPX")!)).toBe("5,842.11 pts");
+    expect(formatPrice(fixtureQuotes.find((item) => item.instrument.symbol === "XAUUSD")!)).toBe("$2,742.80 / troy ounce");
+    expect(formatChartValue(5842.11, fixtureQuotes.find((item) => item.instrument.symbol === "SPX")!.instrument)).toBe("5,842.11 pts");
+    expect(formatUnitLabel(fixtureQuotes.find((item) => item.instrument.symbol === "SPX")!.instrument)).toBe("index points");
     expect(formatChange(quote.percentageChange)).toBe("+0.96%");
     expect(formatChange(null)).toBe("Unavailable");
     expect(formatTimestamp(quote.sourceTimestamp)).toContain("UTC");
